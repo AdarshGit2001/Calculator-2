@@ -11,3 +11,9 @@ def calc(num1, num2, operation):
         return num1 / num2
     else:
         raise ValueError("Invalid operation specified.")
+    
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+operation = input("Enter operation (add, subtract, multiply, divide): ")
+result = calc(num1, num2, operation)
+print("Result:", result)
