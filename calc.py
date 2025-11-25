@@ -1,19 +1,25 @@
 def calc(num1, num2, operation):
-    if operation == 'add':
+    if operation in ['add', '+']:
         return num1 + num2
-    elif operation == 'subtract':
+    elif operation in ['subtract', '-']:
         return num1 - num2
-    elif operation == 'multiply':
+    elif operation in ['multiply', '*']:
         return num1 * num2
-    elif operation == 'divide':
+    elif operation in ['divide', '/']:
         if num2 == 0:
-            raise ValueError("Cannot divide by zero.")
+            return "Error: Cannot divide by zero."
         return num1 / num2
     else:
-        raise ValueError("Invalid operation specified.")
-    
-num1 = int(input("Enter first number: "))
-num2 = int(input("Enter second number: "))
-operation = input("Enter operation (add, subtract, multiply, divide): ")
-result = calc(num1, num2, operation)
-print("Result:", result)
+        return "Error: Invalid operation."
+
+while True:
+    try:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+        op = input("Enter operation (+, -, *, / or add, subtract...): ").lower()
+
+        result = calc(num1, num2, op)
+        print("Result:", result)
+
+    except ValueError:
+        print("Please enter valid numbers!")
